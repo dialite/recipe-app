@@ -1,1 +1,1 @@
-json.array! @recipefoods, partial: "recipefoods/recipefood", as: :recipefood
+json.array! @recipefoods, partial: 'recipefoods/recipefood', as: :recipefood

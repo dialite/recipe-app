@@ -1,1 +1,1 @@
-json.partial! "recipefoods/recipefood", recipefood: @recipefood
+json.partial! 'recipefoods/recipefood', recipefood: @recipefood
