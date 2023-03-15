@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :foods, only: %i[index new create show destroy]
     resources :recipes, only: %i[index new create show destroy] do
       resources :recipe_foods, only: %i[new create]
+    end
+    
   # resources :recipefoods
   # resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
