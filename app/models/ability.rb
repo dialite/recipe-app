@@ -4,6 +4,11 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    can :destroy, Food do |food|
+      food.user == user
+    end
+
+    can :create, Food
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?
