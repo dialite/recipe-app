@@ -12,6 +12,30 @@
   <% end %>
 
   <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :preparation_time, style: "display: block" %>
+    <%= form.number_field :preparation_time %>
+  </div>
+
+  <div>
+    <%= form.label :cooking_time, style: "display: block" %>
+    <%= form.number_field :cooking_time %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :public, style: "display: block" %>
+    <%= form.check_box :public %>
+  </div>
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
