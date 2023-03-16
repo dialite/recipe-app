@@ -3,6 +3,5 @@ class PublicRecipesController < ApplicationController
     @all_public_recipes = Recipe.where(public: true).order(created_at: :desc)
   end
 
-  def show
-  end
+  def show; end
 end
