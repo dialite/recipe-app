@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  get 'public_recipes/index'
+  get 'public_recipes/show'
+
   resources :foods, only: %i[index new create show destroy]
   resources :recipes, only: %i[index new create show destroy] do
     resources :recipe_foods, only: %i[new create]
   end
+
+  resources :public_recipes, only:%i[index new create show ]
     
   # resources :recipefoods
   # resources :users
