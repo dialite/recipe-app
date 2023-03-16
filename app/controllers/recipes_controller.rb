@@ -3,15 +3,11 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    @recipe = Recipe.all
+    @recipes = Recipe.all
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show
-    @recipe = Recipe.find(params[:id])
-    @recipe_foods = @recipe.recipe_foods.includes(:food)
-    @user = @recipe.user
-  end
+  def show; end
 
   # GET /recipes/new
   def new
