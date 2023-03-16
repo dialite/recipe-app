@@ -13,7 +13,7 @@ class FoodsController < ApplicationController
   def new
     @food = Food.new
     respond_to do |format|
-      format.html { render :new, locals: { newfood: } }
+      format.html { render :new, locals: { newfood: @food } }
     end
   end
 
