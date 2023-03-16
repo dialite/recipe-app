@@ -1,14 +1,26 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Foods</h1>
+<h1>Foods List</h1>
 
 <div id="foods">
+  <ul>
   <% @foods.each do |food| %>
-    <%= render food %>
-    <p>
-      <%= link_to "Show this food", food %>
-    </p>
+    <li>
+      <div><%= food.name %></div>
+      <div><%= food.measurement_unit %></div>
+      <div><%= food.quantity %></div>
+      <div><%= food.price %></div>
+      <div><%= "Added by: #{food.user.name}" %></div>
+      <div>
+      <% if can? :destroy, food %> 
+        <%= form_with url: food_path(food.id), method: :delete do |f| %>
+          <%= f.submit 'Delete' %>
+        <% end %>
+      <% end %>
+      </div>
+    </li>
   <% end %>
+  </ul>
 </div>
 
 <%= link_to "New food", new_food_path %>

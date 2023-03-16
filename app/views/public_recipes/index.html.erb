@@ -1,0 +1,26 @@
+<h1>Public Recipes</h1>
+<p>Here you can find all of the public recipes</p>
+<div>
+  <% @all_public_recipes.each do |recipe|%>
+    <div>
+      <div>
+        <div>
+          Recipe#<b><%= recipe.id %></b> by <b><%= recipe.user.email %></b></div>
+        <p><%= distance_of_time_in_words(recipe.created_at, DateTime.now) %></p>
+      </div>
+      <div>
+        <h5><%= recipe.name %></h5>
+        <p><%=h truncate(recipe.description, :length => 160) %></p>
+      </div>
+      <div>
+        <div>
+          <span>Total food items: <%= recipe.getfoods(recipe.id).count %></span>
+          <span>Total price: 
+            <%=  recipe.total_price(recipe.getfoods(recipe.id)) %>$
+          </span>
+        </div>
+        <%= link_to raw('<i class=\"fa-solid fa-trash-can"\></i> More Details'),recipe_path(recipe.id),:class => "button" %>
+      </div>
+    </div>
+  <% end %>
+</div>
