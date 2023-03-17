@@ -1,12 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
-<h2 class="section-title">Users</h2>
+<h1>Users</h1>
 
 <div id="users">
   <% @users.each do |user| %>
     <%= render user %>
-    <p>
-      <button><%= link_to "Show this user", user %></button>
-    </p>
-    <hr>
   <% end %>
+</div>
