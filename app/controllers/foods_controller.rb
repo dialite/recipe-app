@@ -6,8 +6,8 @@ class FoodsController < ApplicationController
   end
 
   def show
-  @food = Food.find(params[:id])
-end
+    @food = Food.find(params[:id])
+  end
 
   def new
     @food = Food.new
