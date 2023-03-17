@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RecipeApp</title>
+    <title>Candent Recipes</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <% flash.each do |type, msg| %>
+  <header>
       <div>
-        <%= msg %>
+        <h1>Recipes</h1>
       </div>
-    <% end %>
+      <ul id="linkList">
+      
+        <li><%= link_to 'Recipes' , root_path %></li>
+        <li><%= link_to 'Foods' , foods_path %></li>
+        <li><%= link_to 'Public Recipes' , public_recipes_path %></li>
+      </ul>
+      <ul id="account-edith">
+        <% if user_signed_in? %>
+        <h3><%= "Hello! #{current_user.name}" %></h3>
+        <li><%= link_to 'Sign out' ,destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+        <% else %>
+        <li><%= link_to 'Sign in', new_user_session_path %></li>
+        <li><%= link_to 'Sign up', new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </header>
+    <div id="pageBody">
     <%= yield %>
-  </body>
+    </div>
 </html>
