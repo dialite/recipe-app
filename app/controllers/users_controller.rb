@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users or /users.json
   def index
-    redirect_to new_user_session_path if current_user.nil?
     @users = User.all
   end
 
@@ -61,11 +59,16 @@ class UsersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:id])
+    if params[:id] == 'sign_out'
+      sign_out current_user
+      redirect_to root_path
+    else
+      @user = User.find(params[:id])
+    end
   end
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.fetch(:user, {})
+    params.require(:user).permit(:name)
   end
 end

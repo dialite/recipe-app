@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div class = "form">
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
@@ -18,12 +18,12 @@
 
   <div>
     <%= form.label :preparation_time, style: "display: block" %>
-    <%= form.number_field :preparation_time %>
+    <%= form.text_field :preparation_time %>
   </div>
 
   <div>
     <%= form.label :cooking_time, style: "display: block" %>
-    <%= form.number_field :cooking_time %>
+    <%= form.text_field :cooking_time %>
   </div>
 
   <div>
@@ -35,7 +35,10 @@
     <%= form.label :public, style: "display: block" %>
     <%= form.check_box :public %>
   </div>
-  <div>
-    <%= form.submit %>
+
+  <div class='submit-recipe'>
+    <%= form.submit "Add recipe" %>
   </div>
+  </div>
+  
 <% end %>

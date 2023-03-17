@@ -1,0 +1,21 @@
+<div>
+<h2 class="section-title">Public Recipes</h2>
+	<ul class="recipes-list">
+		<% if @recipes.empty? %>
+			<li>
+					There are not public recipes yet...
+			</li>
+			<% end %>
+			<% @recipes.each do |recipe|%>
+			<li class="recipe-card">
+				<div class="recipe-card-header">
+					<h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+					<h4>By: <%= recipe.user.name %> </h4>
+				</div>
+				<div class="recipe-card-info">
+					<p><%= recipe.description %></p>
+				</div>
+			</li>
+		<% end %>
+	</ul>
+</div>
