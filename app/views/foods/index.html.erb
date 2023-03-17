@@ -1,26 +1,31 @@
-<p style="color: green"><%= notice %></p>
+<div class="addFoods">
 
-<h1>Foods List</h1>
+<button>
+  <%= link_to "Add food", new_food_path, data: { turbo_frame: 'modal' } %>
+</button>
 
-<div id="foods">
-  <ul>
-  <% @foods.each do |food| %>
-    <li>
-      <div><%= food.name %></div>
-      <div><%= food.measurement_unit %></div>
-      <div><%= food.quantity %></div>
-      <div><%= food.price %></div>
-      <div><%= "Added by: #{food.user.name}" %></div>
-      <div>
-      <% if can? :destroy, food %> 
-        <%= form_with url: food_path(food.id), method: :delete do |f| %>
-          <%= f.submit 'Delete' %>
-        <% end %>
-      <% end %>
-      </div>
-    </li>
-  <% end %>
-  </ul>
+<table class='foods-table'>
+    <thead>
+        <tr>
+          <th>Food</th>
+          <th>Measurement unit</th>
+          <th>Unit price</th>
+          <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+      <% @foods.each do |f| %>
+        <tr>
+            <td><%= f.name %></td>
+            <td><%= f.measurement_unit %></td>
+            <td><%= f.price %></td>
+            <td><%= link_to "Delete", food_path(f.id), data: {
+                         turbo_method: :delete,
+                         turbo_confirm: "Are you sure you want to delete this food item?"
+                      }, class: "delete-food-cell" %></td>
+        </tr>
+       <% end %>
+    </tbody>
+</table>
 </div>
-
-<%= link_to "New food", new_food_path %>
