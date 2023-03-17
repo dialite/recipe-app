@@ -1,4 +1,4 @@
-class recipe_foodsController < ApplicationController
+class recipefoodsController < ApplicationController
   before_action :authenticate_user!, :set_recipefood, only: %i[show edit update destroy]
 
   def index
