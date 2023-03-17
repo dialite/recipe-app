@@ -3,18 +3,11 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    if current_user
-      @recipe = current_user.recipes
-    else
-      redirect_to public_recipe_path
-      nil
-    end
+    @recipes = Recipe.where(user_id: current_user.id)
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show
-    @recipe = Recipe.find(params[:id])
-  end
+  def show; end
 
   # GET /recipes/new
   def new
@@ -26,7 +19,8 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
-    @recipe = current_user.recipes.new(recipe_params)
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user_id = current_user.id
 
     respond_to do |format|
       if @recipe.save
@@ -40,17 +34,17 @@ class RecipesController < ApplicationController
   end
 
   # PATCH/PUT /recipes/1 or /recipes/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @recipe.update(recipe_params)
-  #       format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
-  #       format.json { render :show, status: :ok, location: @recipe }
-  #     else
-  #       format.html { render :edit, status: :unprocessable_entity }
-  #       format.json { render json: @recipe.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    respond_to do |format|
+      if @recipe.update(recipe_params)
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
+        format.json { render :show, status: :ok, location: @recipe }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /recipes/1 or /recipes/1.json
   def destroy
@@ -60,10 +54,6 @@ class RecipesController < ApplicationController
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def public_recipes
-    @recipes = Recipe.where(public: true).order(created_at: :desc)
   end
 
   private
