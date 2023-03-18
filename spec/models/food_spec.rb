@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   let(:user) { User.create(name: 'Raymond', email: 'raylight@mail.com', password: '123456789') }
-  let(:food) { Food.create(user_id: user.id, name: 'Pizza', measurement_unit: 'kg', price: 12) }
 
   describe 'Validations' do
+    subject(:food) { described_class.new(user_id: user.id, name: 'Pizza', measurement_unit: 'kg', price: 12) }
     context 'when valid' do
       it { expect(food).to be_valid }
     end
@@ -40,7 +40,7 @@ RSpec.describe Food, type: :model do
     end
 
     it 'should validate price' do
-      food.price = 6
+      food.price = 8
       expect(food).to be_valid
     end
   end
