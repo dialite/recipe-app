@@ -26,6 +26,11 @@ header {
   font-size: 15px;
 }
 
+.back1 a {
+  text-decoration: none;
+  color: green;
+}
+
 .addFoods button a {
   text-decoration: none;
 }
@@ -273,11 +278,6 @@ th {
 
 .submit-btn input {
   background-color: rgb(84, 190, 84);
-}
-
-.back1 a {
-  text-decoration: none;
-  color: green;
 }
 
 .shopping-button {
