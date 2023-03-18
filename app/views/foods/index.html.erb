@@ -15,7 +15,7 @@
     </thead>
 
     <tbody>
-      <% @foods.each do |f| %>
+      <% @foods.includes(:recipe_foods).each do |f| %>
         <tr>
             <td><%= f.name %></td>
             <td><%= f.measurement_unit %></td>

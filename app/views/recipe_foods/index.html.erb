@@ -12,7 +12,7 @@
     <th> Price </th>
     <th> Total </th>
   </tr>
-  <% @foods.each do |food_item| %>
+  <% @foods.includes(:food).each do |food_item| %>
       <tr>
         <td><%= food_item.food.name %></td>
         <td><%= food_item.quantity %></td>

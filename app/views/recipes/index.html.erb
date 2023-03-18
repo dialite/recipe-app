@@ -7,7 +7,7 @@
 </div>
 
 <div id="recipes">
-  <% @recipes.each do |recipe| %>
+  <% @recipes.includes(:user).each do |recipe| %>
     <div class="recipe-container">
     <%= render recipe %>
     <div class="recipe-options">

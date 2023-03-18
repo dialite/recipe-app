@@ -3,10 +3,10 @@
 	<ul class="recipes-list">
 		<% if @recipes.empty? %>
 			<li>
-					There are not public recipes yet...
+				There are not public recipes yet...
 			</li>
 			<% end %>
-			<% @recipes.each do |recipe|%>
+			<% @recipes.includes(:user).each do |recipe|%>
 			<li class="recipe-card">
 				<div class="recipe-card-header">
 					<h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
