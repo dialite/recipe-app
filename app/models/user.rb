@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :recipes, class_name: 'Recipe', foreign_key: 'user_id', dependent: :destroy
   has_many :recipe_foods, through: :recipes
 
+  validates :name, presence: true
+
   def admin?
     role.present? && role == 'admin'
   end
