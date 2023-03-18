@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Candent Recipes</title>
+    <title>Recipes</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,7 +15,7 @@
         <h1>Recipes</h1>
       </div>
       <ul id="linkList">
-      
+      <li><%= link_to 'Users' , users_path %></li>
         <li><%= link_to 'Recipes' , root_path %></li>
         <li><%= link_to 'Foods' , foods_path %></li>
         <li><%= link_to 'Public Recipes' , public_recipes_path %></li>

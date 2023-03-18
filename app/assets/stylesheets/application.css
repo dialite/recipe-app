@@ -1,15 +1,276 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/* navbar */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(225, 225, 225);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+#pageBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(170, 178, 178);
+}
+
+.back a {
+  text-decoration: none;
+}
+
+.edith-button a {
+  text-decoration: none;
+  color: green;
+  font-size: 15px;
+}
+
+.addFoods button a {
+  text-decoration: none;
+}
+
+.recipes-list li {
+  list-style: none;
+}
+
+#linkList {
+  display: flex;
+}
+
+#linkList a {
+  display: flex;
+  text-decoration: none;
+  font-size: 20px;
+  color: green;
+}
+
+#linkList li {
+  list-style: none;
+}
+
+#linkList > * {
+  margin: 1rem;
+}
+
+#account-edith {
+  display: flex;
+}
+
+#account-edith a {
+  display: flex;
+  text-decoration: none;
+}
+
+#account-edith li {
+  list-style: none;
+}
+
+#account-edith > * {
+  margin: 1rem;
+}
+
+#users {
+  border: #000 1px solid;
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+#users a {
+  text-decoration: none;
+  color: green;
+}
+
+/* recipe */
+.recipe-container {
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid rgb(1, 2, 65);
+  padding: 1rem;
+  margin: 1rem;
+  width: 60vw;
+  margin-left: 15vw;
+}
+
+.recipe-header {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  margin-inline: 30vw;
+  border: rgb(1, 2, 65) 2px solid;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.button-header h2 {
+  text-align: center;
+}
+
+.publicR {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.edith-button {
+  margin-left: 30vw;
+}
+
+.back1 {
+  margin-bottom: 4px;
+}
+
+#recipes a {
+  text-decoration: none;
+  font-size: 15px;
+  border: 1px solid black;
+  background-color: rgb(2, 23, 2);
+  padding: 6px;
+  color: white;
+}
+
+.recipe div {
+  display: flex;
+  align-items: center;
+}
+
+.back {
+  border: #000 1px solid;
+  width: 100px;
+  margin-bottom: 3px;
+  padding: 7px;
+  margin-left: 30vw;
+}
+
+.form {
+  margin-left: 30vw;
+}
+
+.form input {
+  width: 30vw;
+  padding: 10px;
+}
+
+.form textarea {
+  width: 30vw;
+  padding: 30px;
+}
+
+#newrecipe {
+  display: flex;
+  justify-content: flex-end;
+  width: 80vw;
+}
+
+#newrecipe > * {
+  border: 2px solid green;
+  border-radius: 3px;
+  background-color: rgb(81, 159, 81);
+  padding: 0.7rem;
+  text-decoration: none;
+  box-shadow: 3px 3px #888;
+  margin-bottom: 30px;
+}
+
+/* public recipe */
+.section-title {
+  text-align: center;
+}
+
+.recipes-list {
+  display: flex;
+  border: 2px solid #000;
+  border-radius: 5px;
+  width: 60vw;
+  align-items: center;
+}
+
+.recipe-card-header {
+  width: 60%;
+  align-content: center;
+  color: green;
+}
+
+.recipe-card {
+  width: 60%;
+  border-right: #000 1px solid;
+  align-content: center;
+  margin-left: 1rem;
+}
+
+.recipe-card-header h4 {
+  margin: 10px;
+}
+
+.recipe-card-info {
+  margin-left: 1rem;
+}
+
+/* shopping list */
+
+/* food */
+.food-form {
+  margin-top: 5vw;
+}
+
+.addFoods {
+  display: flex;
+  flex-direction: column;
+  width: 40vw;
+  margin-top: 5vw;
+  padding-bottom: 30px;
+}
+
+.addFoods button {
+  margin-bottom: 30px;
+  width: 100px;
+  align-self: flex-end;
+  background-color: rgb(115, 225, 115);
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+  width: 40vw;
+  padding: 10px;
+}
+
+tr:nth-child(odd) {
+  background-color: #c1bebe;
+}
+
+th {
+  background-color: rgb(198, 194, 194);
+}
+
+.delete-input-food {
+  display: flex;
+  justify-content: center;
+}
+
+.food-unit,
+.custom-btn {
+  margin: 5px 0;
+}
+
+.food-form-cell {
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.food-form-cell input {
+  width: 30vw;
+  padding: 10px;
+}
+
+.submit {
+  justify-content: center;
+}
+
+.submit-btn input {
+  background-color: rgb(84, 190, 84);
+}
