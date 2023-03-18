@@ -1,19 +1,18 @@
-<div>
-<%= form_with url: recipe_recipe_foods_path, method: :post, local: true, scope: :recipe_food do |f| %>
+<%= form_with url: recipe_recipe_foods_path, method: :post, local: true, scope: :recipe_foods do |f| %>
   <div>
-    <%= f.select :food_id, options_for_select(@food_items), {}, %>
+    <%= f.select :food_id, options_for_select(@food_items), {} %>
   </div>
 
   <div>
-  <%= f.hidden_field :recipe_id, {value: @recipe.id} %>
+    <%= f.hidden_field :recipe_id, {value: @recipe.id} %>
   </div>
 
   <div>
     <%= f.label :quantity %>
     <%= f.number_field :quantity %>
   </div>
+
   <div>
     <%= f.submit :add %>
   </div>
 <% end %>
-</div>
