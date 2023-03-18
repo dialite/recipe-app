@@ -1,4 +1,4 @@
-<%= form_with url: recipe_recipe_foods_path, method: :post, local: true, scope: :recipe_foods do |f| %>
+<%= form_with url: recipe_recipe_foods_path, method: :post, local: true, scope: :recipe_food do |f| %>
   <div>
     <%= f.select :food_id, options_for_select(@food_items), {} %>
   </div>
