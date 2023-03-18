@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-  subject { described_class.new(name: 'Vegetables', preparation_time: 30, cooking_time: 40, description: 'Well nourished recipe on vegetables', public: false) }
+  subject do
+    described_class.new(name: 'Vegetables', preparation_time: 30, cooking_time: 40,
+                        description: 'Well nourished recipe on vegetables', public: false)
+  end
 
   it 'validates presence of name' do
     subject.name = nil

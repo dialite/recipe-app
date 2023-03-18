@@ -16,7 +16,7 @@ RSpec.feature 'Users', type: :request do
   end
 
   it 'is not valid an invalid email' do
-    @user.email = 'a' * 244 + '.com'
+    @user.email = "#{'a' * 244}.com"
     expect(@user).to_not be_valid
   end
 

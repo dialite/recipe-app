@@ -2,10 +2,15 @@ require 'rails_helper'
 require 'date'
 
 RSpec.describe RecipeFoods, type: :model do
-  let(:user) { User.create(name: 'Tmana', email: "tamana@gmail.com", password: '123456789', password_confirmation: '123456789') }
+  let(:user) do
+    User.create(name: 'Tmana', email: 'tamana@gmail.com', password: '123456789', password_confirmation: '123456789')
+  end
   let(:food) { user.foods.create(name: 'Pasta', measurement_unit: 'litres', price: 70, quantity: 300) }
-  let(:recipe) { user.recipes.create(name: 'Vegetables', preparation_time: 20, cooking_time: 40, description: 'Nourisher', public: true) }
-  let(:recipe_foods) { RecipeFoods.new(recipe: recipe, food: food, quantity: 8) }
+  let(:recipe) do
+    user.recipes.create(name: 'Vegetables', preparation_time: 20, cooking_time: 40, description: 'Nourisher',
+                        public: true)
+  end
+  let(:recipe_foods) { RecipeFoods.new(recipe:, food:, quantity: 8) }
 
   it 'is valid when created with valid attributes' do
     expect(recipe_foods).to be_valid
