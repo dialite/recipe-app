@@ -11,6 +11,10 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'cancancan'
 
+gem 'bullet'
+
+gem 'factory_bot_rails'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
 
