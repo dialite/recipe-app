@@ -1,56 +1,71 @@
-RSpec.describe RecipesController, type: :request do
-  describe "GET /recipes" do
-    context "when user is not signed in" do
-      it "redirects to the sign in page" do
-        get "/recipes"
-        expect(response).to redirect_to(new_user_session_path)
-      end
-    end
+class RecipesController < ApplicationController
+  before_action :set_recipe, only: %i[show edit update destroy]
 
-    context "when user is signed in" do
-      let(:user) { create(:user) }
-      let!(:recipe) { create(:recipe, user: user) }
+  # GET /recipes or /recipes.json
+  def index
+    @recipes = Recipe.where(user_id: current_user.id)
+  end
 
-      before { sign_in user }
+  # GET /recipes/1 or /recipes/1.json
+  def show; end
 
-      it "returns a success response" do
-        get "/recipes"
-        expect(response).to have_http_status(:ok)
-      end
+  # GET /recipes/new
+  def new
+    @recipe = Recipe.new
+  end
 
-      it "displays the user's recipes" do
-        get "/recipes"
-        expect(response.body).to include(recipe.name)
+  # GET /recipes/1/edit
+  def edit; end
+
+  # POST /recipes or /recipes.json
+  def create
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user_id = current_user.id
+
+    respond_to do |format|
+      if @recipe.save
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
+        format.json { render :show, status: :created, location: @recipe }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  describe "GET /recipes/:id" do
-    context "when user is not signed in" do
-      let(:recipe) { create(:recipe) }
-
-      it "redirects to the sign in page" do
-        get "/recipes/#{recipe.id}"
-        expect(response).to redirect_to(new_user_session_path)
+  # PATCH/PUT /recipes/1 or /recipes/1.json
+  def update
+    respond_to do |format|
+      if @recipe.update(recipe_params)
+        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
+        format.json { render :show, status: :ok, location: @recipe }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
+  end
 
-    context "when user is signed in" do
-      let(:user) { create(:user) }
-      let(:recipe) { create(:recipe, user: user) }
+  # DELETE /recipes/1 or /recipes/1.json
+  def destroy
+    @recipe.destroy
 
-      before { sign_in user }
-
-      it "returns a success response" do
-        get "/recipes/#{recipe.id}"
-        expect(response).to have_http_status(:ok)
-      end
-
-      it "displays the recipe's details" do
-        get "/recipes/#{recipe.id}"
-        expect(response.body).to include(recipe.name)
-        expect(response.body).to include(recipe.description)
-      end
+    respond_to do |format|
+      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+      format.json { head :no_content }
     end
+  end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_recipe
+    puts "Recipe ID: #{params[:id]}"
+    @recipe = Recipe.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def recipe_params
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end
