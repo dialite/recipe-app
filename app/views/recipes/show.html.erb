@@ -35,6 +35,11 @@
       <p class="r-sub-text"><%= @recipe.description %></p>
     </div>
 
+    <div>
+      <a href="<%= recipe_recipe_foods_path(recipe_id: @recipe) %>" class="btn btn-success">Generate shopping list</a><br><br>
+      <a href="<%= new_recipe_recipe_food_path(recipe_id: @recipe) %>" class="btn btn-primary">Add ingredient</a>
+    </div>
+
   </div>
   
 <div class ="edith-button">
@@ -44,4 +49,6 @@
 <br>
   <%= button_to "Destroy this recipe", @recipe, method: :delete %>
 </div>
+
+
 

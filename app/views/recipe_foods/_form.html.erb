@@ -1,17 +1,18 @@
-<%= form_with(model: recipe_food) do |form| %>
-  <% if recipe_food.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(recipe_food.errors.count, "error") %> prohibited this recipefood from being saved:</h2>
-
-      <ul>
-        <% recipe_food.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with url: recipe_recipe_foods_path, method: :post, local: true, scope: :recipe_food do |f| %>
+  <div>
+    <%= f.select :food_id, options_for_select(@food_items), {} %>
+  </div>
 
   <div>
-    <%= form.submit %>
+    <%= f.hidden_field :recipe_id, {value: @recipe.id} %>
+  </div>
+
+  <div>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+  </div>
+
+  <div>
+    <%= f.submit :add %>
   </div>
 <% end %>

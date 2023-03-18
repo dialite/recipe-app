@@ -1,14 +1,24 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Recipefoods</h1>
-
-<div id="recipefoods">
-  <% @recipe_foods.each do |recipefood| %>
-    <%= render recipefood %>
-    <p>
-      <%= link_to "Show this recipefood", recipe_food %>
-    </p>
-  <% end %>
+<div>
+<h1>Shopping List </h1>
+<div>
+  <p>Amount of items to buy: <%= @foods.size %></p>
+  <p>Total value of food need: <%= "$#{@sum}" %></p>
 </div>
 
-<%= link_to "New recipefood", new_recipe_food_path %>
+<table>
+  <tr>
+    <th> Food Item </th>
+    <th> Quantity </th>
+    <th> Price </th>
+    <th> Total </th>
+  </tr>
+  <% @foods.each do |food_item| %>
+      <tr>
+        <td><%= food_item.food.name %></td>
+        <td><%= food_item.quantity %></td>
+        <td><%= "$#{ food_item.food.price }" %></td>
+        <td><%= "$#{ food_item.food.price * food_item.quantity }" %></td>
+      </tr>
+    <% end %>
+</table>
+</div>
