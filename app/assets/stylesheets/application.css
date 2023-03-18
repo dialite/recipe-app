@@ -4,7 +4,7 @@ header {
   align-items: center;
   justify-content: space-around;
   background-color: rgb(225, 225, 225);
- position: sticky;
+  position: sticky;
   top: 0;
   z-index: 1;
 }
@@ -274,4 +274,3 @@ th {
 .submit-btn input {
   background-color: rgb(84, 190, 84);
 }
-
