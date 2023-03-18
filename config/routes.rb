@@ -12,11 +12,14 @@ Rails.application.routes.draw do
 
   resources :public_recipes, only: %i[index]
   resources :foods, only: %i[index new create destroy]
-  resources :recipes, only: %i[index show new create edit update destroy]
+  resources :recipes, only: %i[index show new create edit update destroy] do
+    resources :recipe_foods, only: %i[index new show create destroy]
+ end
   
   
   resources :recipes, only: %i[index show new create destroy] do
-    resources :recipefoods, only: %i[new create destroy update edit]
-   
+    resources :recipe_foods, only: %i[index new show create destroy update edit]
   end
+
+  get '/recipe_foods', to: 'recipe_foods#index'
 end

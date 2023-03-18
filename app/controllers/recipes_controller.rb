@@ -60,6 +60,7 @@ class RecipesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_recipe
+    puts "Recipe ID: #{params[:id]}"
     @recipe = Recipe.find(params[:id])
   end
 

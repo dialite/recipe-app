@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :foods, class_name: 'Food', foreign_key: 'user_id', dependent: :destroy
   has_many :recipes, class_name: 'Recipe', foreign_key: 'user_id', dependent: :destroy
+  has_many :recipe_foods, through: :recipes
 
   def admin?
     role.present? && role == 'admin'
