@@ -26,6 +26,11 @@ header {
   font-size: 15px;
 }
 
+.back1 a {
+  text-decoration: none;
+  color: green;
+}
+
 .addFoods button a {
   text-decoration: none;
 }
@@ -274,3 +279,17 @@ th {
 .submit-btn input {
   background-color: rgb(84, 190, 84);
 }
+
+.shopping-button {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+hr {
+  border: 1px solid #a85555;
+  width: 50vw;
+}
+
+/* shopping list */
