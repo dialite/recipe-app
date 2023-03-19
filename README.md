@@ -147,7 +147,7 @@ The user then can modify and play with the files as needed
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Lucas Mullen**
+👤 **raymond olisa**
 
 - GitHub: [@dialite](https://github.com/dialite)
 - LinkedIn: [Raymond Olisa](https://www.linkedin.com/in/raymond-olisa-775929243/)
