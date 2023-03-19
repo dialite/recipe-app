@@ -150,7 +150,7 @@ The user then can modify and play with the files as needed
 👤 **Lucas Mullen**
 
 - GitHub: [@dialite](https://github.com/dialite)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/raymond-olisa-775929243/)
+- LinkedIn: [Raymond Olisa](https://www.linkedin.com/in/raymond-olisa-775929243/)
 
 👤 **Tamana Balkhi**
 
