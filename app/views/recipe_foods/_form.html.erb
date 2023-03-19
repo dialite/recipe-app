@@ -1,34 +1,22 @@
 <%= form_with url: recipe_recipe_foods_path, method: :post, local: true, scope: :recipe_food do |f| %>
-<table>
-  <tbody>
-  <thead>
-      <tr>
-        <th>Food</th>
-        <th>Quantity</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tr>
-      <td>
-        <%= f.label :food_id %>
-        <%= f.select :food_id, Food.all.collect {|food| [food.name, food.id]},{
-        include_blank: true} %>
-      </td>
-      <td>
-        <%= f.label :quantity %>
-        <%= f.number_field :quantity, required: true, placeholder: '1', min: 1%>
-      </td>
-      <td>
-        <%= f.submit "Add" %>
-      </td>
-    </tr>
 
-  </tbody>
+<div class = "form">
+  <div class = "ing_form">
+  <%= f.label :foods %>
+    <%= f.select :food_id, options_for_select(@food_items), {} %>
+  </div>
 
-</table>
+  <div class = "ing_form">
+    <%= f.hidden_field :recipe_id, {value: @recipe.id} %>
+  </div>
 
-    <% end %>
-  
+  <div class = "ing_form">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+  </div>
 
-
-
+  <div class = "ing_form">
+    <%= f.submit :add %>
+  </div>
+  </div>
+<% end %>

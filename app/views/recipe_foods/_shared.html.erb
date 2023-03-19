@@ -1,0 +1,24 @@
+<% if @recipe.recipe_foods %>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @recipe.recipe_foods.each do |recipe_food| %>
+        <tr>
+          <th><%= recipe_food.food.name %></th>
+          <td><%= pluralize(recipe_food.quantity, recipe_food.food.measurement_unit) %></td>
+          <td>$<%= recipe_food.quantity * recipe_food.food.price %></td>
+			    <% if can? :update, recipe_food.recipe %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+</div>
+<% end %>

@@ -1,5 +1,7 @@
 <div class="addFoods">
 
+<h1>Food List</h1>
+
 <button>
   <%= link_to "Add food", new_food_path, data: { turbo_frame: 'modal' } %>
 </button>
@@ -15,7 +17,7 @@
     </thead>
 
     <tbody>
-      <% @foods.each do |f| %>
+      <% @foods.includes(:recipe_foods).each do |f| %>
         <tr>
             <td><%= f.name %></td>
             <td><%= f.measurement_unit %></td>

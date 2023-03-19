@@ -44,19 +44,17 @@
   <%= button_to "Destroy this recipe", @recipe, method: :delete %>
 </div>
 
-<hr>
-    <div class= "shopping-button">
-    
-    <button class="back1">
-      <a href="<%= recipe_recipe_foods_path(recipe_id: @recipe) %>" class="btn btn-success">Generate shopping list</a></button><br><br>
-      <button class="back1">
-      <a href="<%= new_recipe_recipe_food_path(recipe_id: @recipe) %>" class="btn btn-primary">Add ingredient</a>
-    </button>
-    
-    </div>
+<hr class ="r_show">
+<div class= "shopping-button">
 
-     
+<button class="back1">
+  <a href="<%= recipe_recipe_foods_path(recipe_id: @recipe) %>" class="btn btn-success">Generate shopping list</a></button><br><br>
+  <button class="back1">
+  <a href="<%= new_recipe_recipe_food_path(recipe_id: @recipe) %>" class="btn btn-primary">Add ingredient</a>
+</button>
 
+</div>
 
-
-
+ <div class="column is-three-quarters">
+      <%= render partial: "recipe_foods/shared", locals: { recipe_foods: @recipe } %>
+  </div>
