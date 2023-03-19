@@ -287,9 +287,17 @@ th {
   margin-left: 20px;
 }
 
-hr {
-  border: 1px solid #a85555;
+.r_show {
+  border: 1px solid #0b0909;
   width: 50vw;
 }
 
 /* shopping list */
+
+.ing_form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  margin-bottom: 5px;
+  margin-right: 20vw;
+}
