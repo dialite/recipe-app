@@ -6,25 +6,26 @@
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ](#faq)
-- [📝 License](#license)
+- [� Table of Contents](#-table-of-contents)
+- [📖 Recipe App ](#-recipe-app-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+      - [Check your Ruby version or install it](#check-your-ruby-version-or-install-it)
+    - [Clone the repository](#clone-the-repository)
+    - [Install](#install)
+      - [.env File Structure](#env-file-structure)
+    - [Usage](#usage)
+    - [Testing](#testing)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
 # 📖 Recipe App <a name="about-project"></a>
 
@@ -161,9 +162,9 @@ The user then can modify and play with the files as needed
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Validations and Model specs**
-- **Setup and controllers**
-- **Views and Forms**
+- **Structured user rights**
+- **Add wish list**
+- **Time counter for food preparation**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
