@@ -10,7 +10,6 @@ RSpec.describe 'PublicRecipe', type: :request do
     feature 'Testing recipes index page' do
       background { visit public_recipes_path }
 
-
       scenario 'I can see the app title' do
         expect(page).to have_content('Recipes')
       end
