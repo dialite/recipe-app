@@ -1,0 +1,20 @@
+<%= form_with model: @food do |form| %>
+<div class="food-form">
+
+  <div class='food-form-cell'>
+    <%= form.text_field :name, placeholder: "Name", class:'form-control' %>
+  </div>
+
+  <div class='food-form-cell'>
+    <%= form.text_field :measurement_unit, placeholder: "Measurement unit", class:'form-control' %>
+  </div>
+
+  <div class='food-form-cell'>
+    <%= form.text_field :price, placeholder: "Unit price", class:'form-control' %>
+  </div>
+
+  <div class='submit-btn'>
+    <%= form.submit "Add food" %>
+  </div>
+</div>
+<% end %>

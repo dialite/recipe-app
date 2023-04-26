@@ -1,0 +1,11 @@
+<div id="<%= dom_id recipe %>" class="recipe">
+  <div >
+    <h3>
+    <strong><%= recipe.name %></strong>
+    </h3>
+  </div>
+
+  <p>
+    <%= truncate(recipe.description, length: 150) %>
+  </p>
+</div>

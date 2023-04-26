@@ -1,0 +1,17 @@
+<div>
+<div>
+  <h3>Edit Ingredient</h3>
+    <%= form_with  model: @recipe_food, url: { action: "update"}, local: true, scope: :recipe_food  do |f|%>
+      <div>
+        <%= f.select :food_id, current_user.foods.collect {|food| [food.name, food.id]},{ include_blank: true} %><br>
+      </div>
+
+      <div >
+        <%= f.number_field :quantity ,  required: true, placeholder: 'quantity',  min: 1%><br>
+      </div>
+      <%= f.submit "Update" %>
+    <% end %>
+  </div>
+</div>
+
+

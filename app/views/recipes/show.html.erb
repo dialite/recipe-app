@@ -1,0 +1,60 @@
+<p style="color: green"><%= notice %></p>
+
+
+  <div class="recipe-header">
+      
+    <div class="button-header">
+      <h2 class><%= @recipe.name%></h2>
+    </div>
+
+      <div class="publicR">
+      <h3 class="r-subtitle">
+      Preparation Time: <span class="r-sub-text"><%= @recipe.preparation_time %> min(s)</span>
+      </h3>
+      
+        <% if @recipe.public %>
+        <div class="checker-container">
+          <input class="check-box" type="checkbox" id="checkbox-check" checked />
+          <label class="check-label" for="checkbox-check">Public</label>
+        </div>
+
+        <% end %> <% if !@recipe.public %>
+        <div class="checker-container">
+          <input class="check-box" type="checkbox" id="checkbox-check"/>
+          <label class="check-label" for="checkbox-check">Public</label>
+        </div>
+        <% end %>
+      </div>
+
+    <h3 class="r-subtitle">
+      Cooking Time: <span class="r-sub-text"><%= @recipe.cooking_time %> min(s)</span>
+    </h3>
+
+    <div class="r-sub-text">
+      <h3>Step by step description:</h3>
+      <p class="r-sub-text"><%= @recipe.description %></p>
+    </div>
+</div>
+  
+<div class ="edith-button">
+  <button class="back1"><%= link_to "Edit this recipe", edit_recipe_path(@recipe) %></button>
+  <br>
+  <button class="back1"><%= link_to "Back to recipes", recipes_path %></button>
+<br>
+  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+</div>
+
+<hr class ="r_show">
+<div class= "shopping-button">
+
+<button class="back1">
+  <a href="<%= recipe_recipe_foods_path(recipe_id: @recipe) %>" class="btn btn-success">Generate shopping list</a></button><br><br>
+  <button class="back1">
+  <a href="<%= new_recipe_recipe_food_path(recipe_id: @recipe) %>" class="btn btn-primary">Add ingredient</a>
+</button>
+
+</div>
+
+ <div class="column is-three-quarters">
+      <%= render partial: "recipe_foods/shared", locals: { recipe_foods: @recipe } %>
+  </div>

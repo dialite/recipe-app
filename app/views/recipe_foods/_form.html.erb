@@ -1,0 +1,22 @@
+<%= form_with url: recipe_recipe_foods_path, method: :post, local: true, scope: :recipe_food do |f| %>
+
+<div class = "form">
+  <div class = "ing_form">
+  <%= f.label :foods %>
+    <%= f.select :food_id, options_for_select(@food_items), {} %>
+  </div>
+
+  <div class = "ing_form">
+    <%= f.hidden_field :recipe_id, {value: @recipe.id} %>
+  </div>
+
+  <div class = "ing_form">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+  </div>
+
+  <div class = "ing_form">
+    <%= f.submit :add %>
+  </div>
+  </div>
+<% end %>

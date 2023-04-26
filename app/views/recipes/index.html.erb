@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h2 class="section-title">Recipes</h2>
+
+<div id="newrecipe">
+<%= link_to "Add recipe", new_recipe_path %>
+</div>
+
+<div id="recipes">
+  <% @recipes.includes(:user).each do |recipe| %>
+    <div class="recipe-container">
+    <%= render recipe %>
+    <div class="recipe-options">
+    <p>
+      <%= link_to "Show recipe", recipe %>
+    </p>
+    <%= button_to "Delete recipe", recipe, method: :delete %>
+    </div>
+    </div>
+  <% end %>
+</div>
